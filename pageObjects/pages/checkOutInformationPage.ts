@@ -1,7 +1,5 @@
 import { ShoppingPage } from "./abstractPages/shoppingPage";
 import { Page, Locator } from "@playwright/test";
-import { CheckOutOverviewPage } from "./checkOutOverviewPage";
-import { CartPage } from "./cartPage";
 
 export class CheckOutInformationPage extends ShoppingPage {
   private firstNameInputField: Locator;
@@ -22,20 +20,15 @@ export class CheckOutInformationPage extends ShoppingPage {
   public async validCheckout(
     firstName: string,
     lastName: string,
-    zipCode: string,
-    isValid = true
+    zipCode: string
   ) {
     await this.firstNameInputField.fill(firstName);
     await this.lastNameInputField.fill(lastName);
     await this.zipCodeField.fill(zipCode);
     await this.continueButton.click();
-    if (isValid) {
-      return new CheckOutOverviewPage(this.page);
-    }
   }
 
   public async clickCancelButton() {
     await this.cancelButton.click();
-    return new CartPage(this.page);
   }
 }

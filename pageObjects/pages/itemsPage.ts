@@ -1,7 +1,6 @@
 import { expect, Locator, Page } from "@playwright/test";
 import { ShoppingPage } from "./abstractPages/shoppingPage";
 import { ArticleItem } from "../elements/articleItem";
-import { CartPage } from "./cartPage";
 
 export enum SortOrder {
   nameAtoZ = "az",
@@ -54,7 +53,6 @@ export class ItemsPage extends ShoppingPage {
 
   public async goToCart() {
     await this.cartLink.click();
-    return new CartPage(this.page);
   }
 
   public async verifySortedValues(

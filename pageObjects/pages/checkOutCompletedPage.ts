@@ -1,6 +1,5 @@
 import { ShoppingPage } from "./abstractPages/shoppingPage";
 import { Page, Locator, expect } from "@playwright/test";
-import { ItemsPage } from "./itemsPage";
 
 export class CheckOutCompletedPage extends ShoppingPage {
   private backHomeButton: Locator;
@@ -14,7 +13,6 @@ export class CheckOutCompletedPage extends ShoppingPage {
 
   public async clickBackHomeButton() {
     await this.backHomeButton.click();
-    return new ItemsPage(this.page);
   }
 
   public async verifyCompletedOrderTitle() {

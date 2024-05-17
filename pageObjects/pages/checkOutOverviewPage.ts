@@ -1,8 +1,6 @@
 import { ShoppingPage } from "./abstractPages/shoppingPage";
 import test, { Page, Locator, expect } from "@playwright/test";
 import { ArticleItem } from "../elements/articleItem";
-import { CheckOutCompletedPage } from "./checkOutCompletedPage";
-import { ItemsPage } from "./itemsPage";
 
 export class CheckOutOverviewPage extends ShoppingPage {
   private orderedItems: Locator;
@@ -61,11 +59,9 @@ export class CheckOutOverviewPage extends ShoppingPage {
 
   public async clickCancelButton() {
     await this.cancelButton.click();
-    return new ItemsPage(this.page);
   }
 
   public async clickFinishButton() {
     await this.finishButton.click();
-    return new CheckOutCompletedPage(this.page);
   }
 }
