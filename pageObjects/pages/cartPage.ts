@@ -1,7 +1,6 @@
 import { expect, Locator, Page } from "@playwright/test";
 import { ShoppingPage } from "./abstractPages/shoppingPage";
 import { ArticleItem } from "../elements/articleItem";
-import { CheckOutInformationPage } from "./checkOutInformationPage";
 
 export class CartPage extends ShoppingPage {
   private readonly cartItems: Locator;
@@ -33,6 +32,5 @@ export class CartPage extends ShoppingPage {
 
   public async clickCheckoutButton() {
     await this.checkOutButton.click();
-    return new CheckOutInformationPage(this.page);
   }
 }

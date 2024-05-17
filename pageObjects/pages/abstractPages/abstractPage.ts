@@ -13,6 +13,10 @@ export abstract class AbstractPage {
     this.error = page.locator("[data-test='error']");
   }
 
+  public async navigateToUrl(url: string) {
+    await this.page.goto(url);
+  }
+
   public async verifyTitle(expectedText: string) {
     return expect(
       this.title,
